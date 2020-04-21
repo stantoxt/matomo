@@ -38,8 +38,8 @@ var walk = function (dir, pattern, result) {
 };
 
 var isCorePlugin = function (pathToPlugin) {
-    // if the plugin is a .git checkout, it's not part of core
-    var gitDir = path.join(pathToPlugin, '.git');
+    // skip plugins that have special needs in core build
+    var gitDir = path.join(pathToPlugin, 'tests/travis');
     return !fs.existsSync(gitDir);
 };
 
